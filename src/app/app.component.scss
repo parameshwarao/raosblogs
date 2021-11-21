@@ -1,0 +1,55 @@
+
+
+.banner{
+    background-color: black;
+    text-align: center;
+    border-bottom: 5px solid #4BA2E5;
+}
+.main_title{
+    font-size: 5em;
+    color: #4BA2E5;
+    font-family: lemonJellyHeading;
+}
+
+.image-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+.blogImage{
+    display:flex;
+    justify-content: center;
+}
+
+//navigation bar
+.navCustomization{
+    padding: 1em;
+    display: flex;
+    align-items: baseline;   
+}
+
+.nav-container{    
+    border-bottom: 4px solid #E8491D;
+}
+
+.nav-item{
+    cursor: pointer;    
+}
+
+$navMenu-color:#477189;
+
+.nav-link{
+    color:$navMenu-color !important;
+    &:hover{
+        color:lighten($navMenu-color,10%) !important;
+    }    
+}
+
+.footer-Class{
+	background-color: #E8491D;
+    height: 45px;
+}
+
+.main-container{
+    min-height: calc(100vh - 45px);
+}

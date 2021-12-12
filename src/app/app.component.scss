@@ -32,17 +32,36 @@
     border-bottom: 4px solid #E8491D;
 }
 
-.nav-item{
-    cursor: pointer;    
-}
+$navMenu-color:#e4e5c0;
 
-$navMenu-color:#477189;
+.responsive-menu{
+display: none;
+}
 
 .nav-link{
     color:$navMenu-color !important;
+    cursor:pointer;
+    margin: 0.4em;
+    border-radius: 10px;
+    font-family: blogText;
+    font-size: 1.2em;
     &:hover{
         color:lighten($navMenu-color,10%) !important;
+        background-color:#4BA2E5;
+        transition: all 0.3s ease-out;
+    }
+    &.active{
+        background-color:#4BA2E5;
     }    
+}
+
+//navigaton item
+.nav-menu{
+    display: flex;
+    transition: all 0.5s ease;   
+}
+.nav-container{
+    background-color:#665f5f;
 }
 
 .footer-Class{
@@ -52,4 +71,46 @@ $navMenu-color:#477189;
 
 .main-container{
     min-height: calc(100vh - 45px);
+}
+
+.navbar-toggle{
+    background-color: #333;
+    border-color: #333;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 0.2em;
+    .icon-bar{
+        background-color: #fff;
+        display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    margin: 3px;
+    }
+}
+
+
+//reponsive
+@media screen and (max-width: 600px) {
+    .nav-menu{
+        flex-direction: column;
+        display: none;  
+        &.is-active{
+            display:block;
+        }      
+    }
+    .responsive-menu{
+        display: block;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .responsive-text{
+            color:#ffffff;
+            padding:0.2em;
+            font-size: 0.9em;
+            font-family: blogText;
+        }
+    }
+
 }

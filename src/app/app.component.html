@@ -26,10 +26,10 @@
     <div class="nav-menu" [ngClass]="expandResponsiveMenu ?'is-active' : ''">      
         <a class="nav-link" [routerLink]="['home']"  [routerLinkActive]="['active']">Home</a>      
         <a class="nav-link" [routerLink]="['about']" [routerLinkActive]="['active']">About Me</a>
-        <a class="nav-link">Tools</a>
-        <a class="nav-link">Personal Finance</a> 
-        <a class="nav-link">blog</a>
-        <a class="nav-link">Disclaimer</a>
+        <a class="nav-link" [routerLink]="['tools']" [routerLinkActive]="['active']">Tools</a>
+        <a class="nav-link" [routerLink]="['personalFinance']" [routerLinkActive]="['active']">Personal Finance</a> 
+        <a class="nav-link" [routerLink]="['blog']" [routerLinkActive]="['active']">blog</a>
+        <a class="nav-link" [routerLink]="['DisclaimerComponent']" [routerLinkActive]="['active']">Disclaimer</a>
         <!--<a class="nav-link">Contact</a>-->            
     </div>
   </div>

@@ -11,6 +11,8 @@ import { PersonalFinanceComponent } from './personal-finance/personal-finance.co
 import { BlogComponent } from './blog/blog.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 
+import{ToolsModuleModule} from './tools-module/tools-module.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,8 @@ import { DisclaimerComponent } from './disclaimer/disclaimer.component';
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '*', component: HomeComponent },
       { path: '**', component: HomeComponent }   
-    ])    
+    ]),
+    ToolsModuleModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

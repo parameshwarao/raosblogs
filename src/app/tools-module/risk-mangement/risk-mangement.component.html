@@ -1,58 +1,133 @@
+<div class="tools-block">
+  <h3 class="trade-type">Trading using At the Money Option</h3>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel"> Risk: </span>
+    </div>
+    <div>
+      <input type="number" class="inputbox" [(ngModel)]="option_riskAmount" (change)="calculateOption()" />
+    </div>
+  </div>
 
 
-<h3>Trading using At the Money Option</h3>
 
-<div class="input_bloc">
-  <span> Risk: </span>
-  <input
-    type="number"
-    [(ngModel)]="option_riskAmount"
-    (change)="calculateOption()"
-  />
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">ATR: </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="ATRvalue" (change)="calculateOption()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">option Buy: </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="option_buy" (change)="calculateOption()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">option delta: </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="opton_delta" (change)="calculateOption()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Lot Size: </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="lotSize" (change)="calculateOption()" />
+    </div>
+  </div>
+
+  <div class="calculation-block">
+    <div>
+      <span class="displayLabel">Postion Size To Trade:-</span><span class="calculatedValueDisplay">{{option_positionSizeToEnter}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Lots To Enter:- </span><span class="calculatedValueDisplay">{{option_lotsToEnter}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Risk Amount Total:-</span><span class="calculatedValueDisplay">{{option_ActualRisk}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Option StopLoss:-</span><span class="stoploss">{{option_stoploss}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Option Takeprofit:-</span><span class="takeProfit">{{option_takeProfit}}</span>
+    </div>
+  </div>
+
+  <div>
+    <button class="showAbsoluteCalculation" (click)="showAbsoluteCalculation = !showAbsoluteCalculation">Absolute
+      Calculation</button>
+  </div>
+
+  <div class="calculation-block" *ngIf="showAbsoluteCalculation">
+    <div>
+      <span class="displayLabel">Postion Size To Trade:-</span><span class="calculatedValueDisplay">{{option_positionSizeToEnter}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Lots To Enter:- </span><span class="calculatedValueDisplay">{{option_lotsToEnter}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Risk Amount Total:-</span><span class="calculatedValueDisplay">{{option_ActualRisk}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Option StopLoss:-</span><span class="stoploss">{{option_stoploss}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Option Takeprofit:-</span><span class="takeProfit">{{option_takeProfit}}</span>
+    </div>
+  </div>
 </div>
 
-<div class="input_bloc">
-  <span>ATR: </span>
-  <input type="number" [(ngModel)]="ATRvalue" (change)="calculateOption()" />
+<div class="tools-block">
+  <h3 class="trade-type">Trading using futures</h3>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Risk: </span>
+    </div>
+    <input class="inputbox" type="number" [(ngModel)]="riskAmount" (change)="calculate()" />
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">ATR: </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="ATRvalue" (change)="calculate()" />
+    </div>
+  </div>
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Lot Size: </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="lotSize" (change)="calculate()" />
+    </div>
+  </div>
+
+  <div class="calculation-block">
+    <div>
+      <span class="displayLabel">Postion Size To Trade:-</span><span class="calculatedValueDisplay">{{postionToEnter}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Lots To Enter:- </span><span class="calculatedValueDisplay">{{lotsToEnter}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Risk Amount Total:-</span><span class="calculatedValueDisplay">{{actualRisk}}</span>
+    </div>
+  </div>
+
 </div>
-
-<div class="input_bloc">
-  <span>option Buy: </span>
-  <input type="number" [(ngModel)]="option_buy" (change)="calculateOption()" />
-</div>
-
-<div class="input_bloc">
-  <span>option delta: </span>
-  <input type="number" [(ngModel)]="opton_delta" (change)="calculateOption()" />
-</div>
-
-<div class="input_bloc">
-  <span>Lot Size: </span>
-  <input type="number" [(ngModel)]="lotSize" (change)="calculateOption()" />
-</div>
-
-<h3>postion size to trade:- {{ option_positionSizeToEnter }}</h3>
-<h3>Lots to enter:- {{ option_lotsToEnter }}</h3>
-<h3>Risk amount total:- {{ option_ActualRisk }}</h3>
-<h3>option StopLoss:- <span class="stoploss">{{ option_stoploss }}</span></h3>
-<h3>option Takeprofit:- <span class="takeProfit">{{ option_takeProfit }}</span></h3>
-
-<h3>Trading using futures</h3>
-
-<div class="input_bloc">
-  <span>Risk: </span>
-  <input type="number" [(ngModel)]="riskAmount" (change)="calculate()" />
-</div>
-
-<div class="input_bloc">
-  <span>ATR: </span>
-  <input type="number" [(ngModel)]="ATRvalue" (change)="calculate()" />
-</div>
-<div class="input_bloc">
-  <span>Lot Size: </span>
-  <input type="number" [(ngModel)]="lotSize" (change)="calculate()" />
-</div>
-
-<h3>postion size to trade:- {{ postionToEnter }}</h3>
-<h3>Lots to enter:- {{ lotsToEnter }}</h3>
-<h3>Risk amount total:- {{ actualRisk }}</h3>
+  

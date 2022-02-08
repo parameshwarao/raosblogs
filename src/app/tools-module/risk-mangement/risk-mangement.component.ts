@@ -11,7 +11,7 @@ export class RiskMangementComponent implements OnInit {
   * future calculation
   */
 
-  lotSize: number = 100;
+  @Input () lotSize: number = 100;
   riskAmount: number = 0;
   riskATR: number = 0;
   pipRate: number = 0;

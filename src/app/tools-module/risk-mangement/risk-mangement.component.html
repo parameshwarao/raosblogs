@@ -99,6 +99,146 @@
 
 <!--Trading using At the Money Option-->
 
+<!--Renko trade using At the money option-->
+<div class="tools-block">
+  <h3 class="trade-type">Renko:- Trading using At the Money Option</h3>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel"> Risk: </span>
+    </div>
+    <div>
+      <input type="number" class="inputbox" [(ngModel)]="option_riskAmount" (change)="calculateRenkoAtmOption()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Renko Block Size: Traditional/ATR </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="renkoBlockSize" (change)="calculateRenkoAtmOption()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">option Buy: </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="option_buy" (change)="calculateRenkoAtmOption()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">option delta: </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="opton_delta" (change)="calculateRenkoAtmOption()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Lot Size: </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="lotSize" (change)="calculateRenkoAtmOption()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Renko Block Multiplier, default 1 : </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="renkoBlockMultiplier" (change)="calculateRenkoAtmOption()" />
+    </div>
+  </div>
+
+  <!--to be optional-->
+  <!--
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Last Renko Block Postion Type: </span>
+    </div>
+    <select class="inputbox" [(ngModel)]="LastCompletedBlockType" (change)="calculateRenkoWatch()">
+      <option Value="long">Long</option>
+      <option Value="short">Short</option>
+    </select>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Position TypeLast Completed Renko Block Price:- </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="LastCompletedBlockPrice" (change)="calculateRenkoWatch()" />
+    </div>
+  </div>
+
+  
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Current Chart Price:- </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="CurrentPrice" (change)="calculateRenkoWatch()" />
+    </div>
+  </div>
+
+  -->
+
+  <!--to be commented-->
+
+  <div class="calculation-block">
+
+    <div>
+      <span class="displayLabel">Postion Size To Trade:-</span><span class="calculatedValueDisplay">{{option_positionSizeToEnter}}</span>
+    </div>
+
+    <div>
+      <span class="displayLabel">Lots To Enter:- </span><span class="calculatedValueDisplay">{{option_lotsToEnter}}</span>
+    </div>
+
+    <div>
+      <span class="displayLabel">Risk Amount Total:-</span><span class="calculatedValueDisplay">{{option_ActualRisk}}</span>
+    </div>
+    
+    <div>
+      <span class="displayLabel">Renko Risk pips:-</span><span class="calculatedValueDisplay">{{option_riskATRPips}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Renko Take profit Pips:- </span><span class="calculatedValueDisplay">{{option_ATR}}</span>
+    </div>
+    
+    <div>
+      <span class="displayLabel">Renko Stoploss price:-</span><span class="stoploss">{{option_stoploss}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Renko TakeProfit price:-</span><span class="takeProfit">{{option_takeProfit}}</span>
+    </div>
+    
+    <!--
+    <div>
+      <span class="displayLabel">Current Price:-</span><span class="renkoInfo">{{CurrentPrice}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Completed Renko block price:-</span><span class="renkoInfo">{{LastCompletedBlockPrice}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">price Difference between current and completed block:-</span><span class="renkoInfo">{{spreadDifference}}</span>
+    </div>
+
+  -->
+  </div>
+
+</div>
+
+<!--Renko trade using At the money option -->
+
 <!--Renko price Watch Calulator-->
 
 <div class="tools-block">

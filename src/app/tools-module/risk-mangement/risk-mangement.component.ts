@@ -122,6 +122,20 @@ export class RiskMangementComponent implements OnInit {
     this.spreadDifference = this.CurrentPrice - this.LastCompletedBlockPrice;
   }
 
+  //trade using renko at the money option
+
+  calculateRenkoAtmOption(){
+    this.option_ATR = (this.renkoBlockSize) * this.renkoBlockMultiplier * this.opton_delta;    
+    this.option_riskATRPips = (2 * this.renkoBlockSize) * this.renkoBlockMultiplier * this.opton_delta;
+    this.option_stoploss = this.option_buy - this.option_riskATRPips;
+    this.option_takeProfit = this.option_buy + this.option_ATR;
+    this.option_pipRate = this.option_riskAmount / this.option_riskATRPips;
+    this.option_positionSizeToEnter = this.option_pipRate / this.lotSize;
+    this.option_lotsToEnter = Math.floor(this.option_positionSizeToEnter);
+    this.option_ActualRisk =
+      this.option_lotsToEnter * this.lotSize * this.option_riskATRPips;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

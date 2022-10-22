@@ -164,6 +164,42 @@ restSelectedScript(data:any){
       this.option_lotsToEnter * this.lotSize * this.option_riskATRPips;
   }
 
+  calculateRenkoFuture(){
+    if (this.LastCompletedBlockType == "long") {
+      //calculate pips
+      this.renkoTrendPips = (this.renkoBlockSize) * this.renkoBlockMultiplier;
+      this.renkoReversalPips = (2 * this.renkoBlockSize) * this.renkoBlockMultiplier;
+
+      //calculate price
+      this.renkoTrendPrice = this.LastCompletedBlockPrice + this.renkoTrendPips;
+      this.renkoReversalPrice = this.LastCompletedBlockPrice - this.renkoReversalPips;
+
+
+
+    }
+    else if (this.LastCompletedBlockType == "short") {
+      //calculate pips
+      this.renkoTrendPips = (this.renkoBlockSize) * this.renkoBlockMultiplier;
+      this.renkoReversalPips = (2 * this.renkoBlockSize) * this.renkoBlockMultiplier;
+
+
+      //calculate price
+      this.renkoTrendPrice = this.LastCompletedBlockPrice - this.renkoTrendPips;
+      this.renkoReversalPrice = this.LastCompletedBlockPrice + this.renkoReversalPips;
+
+
+    }
+
+    this.spreadDifference = this.CurrentPrice - this.LastCompletedBlockPrice;
+
+    this.riskATR = this.renkoReversalPips;
+    this.pipRate = this.riskAmount / this.riskATR;
+    this.lotsToEnter = this.pipRate / this.lotSize;
+    this.postionToEnter = Math.floor(this.lotsToEnter);
+    this.actualRisk = this.postionToEnter * this.lotSize * this.riskATR;
+    
+  }
+
   constructor() { }
 
   ngOnInit(): void {

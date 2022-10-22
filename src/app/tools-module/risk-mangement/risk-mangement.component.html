@@ -337,6 +337,115 @@
 </div>
 <!--Renko price Watch Calulator-->
 
+<!--Renko trade future risk calculator-->
+<div class="tools-block">
+  <h3 class="trade-type">Renko:- trade futures using renko chart</h3>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Risk: </span>
+    </div>
+    <input class="inputbox" type="number" [(ngModel)]="riskAmount" (change)="calculateRenkoFuture()" />
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Postion Type: </span>
+    </div>
+    <select class="inputbox" [(ngModel)]="LastCompletedBlockType" (change)="calculateRenkoFuture()">
+      <option Value="long">Long</option>
+      <option Value="short">Short</option>
+    </select>
+  </div>
+  
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Last Completed Renko Block Price:- </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="LastCompletedBlockPrice" (change)="calculateRenkoFuture()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Renko Block Size: Traditional/ATR </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="renkoBlockSize" (change)="calculateRenkoFuture()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Current Chart Price:- </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="CurrentPrice" (change)="calculateRenkoFuture()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Lot Size:- </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="lotSize" (change)="calculateRenkoFuture()" />
+    </div>
+  </div>
+
+  <div class="input_bloc">
+    <div>
+      <span class="inputLabel">Renko Block Multiplier, default 1 : </span>
+    </div>
+    <div>
+      <input class="inputbox" type="number" [(ngModel)]="renkoBlockMultiplier" (change)="calculateRenkoFuture()" />
+    </div>
+  </div>
+
+  <div class="calculation-block">
+    <div>
+      <span class="displayLabel">Postion Type:- </span><span [ngClass]="{'stoploss': LastCompletedBlockType === 'short', 'takeProfit' : LastCompletedBlockType === 'long' }">{{LastCompletedBlockType}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Postion Size To Trade:-</span><span class="calculatedValueDisplay">{{postionToEnter}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Lots To Enter:- </span><span class="calculatedValueDisplay">{{lotsToEnter}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Risk Amount Total:-</span><span class="calculatedValueDisplay">{{actualRisk}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Renko TakeProfit Pips:- </span><span class="takeProfit">{{renkoTrendPips}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Renko risk pips:-</span><span class="stoploss">{{renkoReversalPips}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Renko Takeprofit price:-</span><span class="takeProfit">{{renkoTrendPrice}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Renko Stoploss Price:-</span><span class="stoploss">{{renkoReversalPrice}}</span>
+    </div>
+    
+    <div>
+      <span class="displayLabel">Current Price:-</span><span class="renkoInfo">{{CurrentPrice}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">Completed Renko block price:-</span><span class="renkoInfo">{{LastCompletedBlockPrice}}</span>
+    </div>
+    <div>
+      <span class="displayLabel">price Difference between current and completed block:-</span><span class="renkoInfo">{{spreadDifference}}</span>
+    </div>
+
+  </div>
+
+</div>
+
+<!--Renko trade future risk calculator-->
+
 
 <!--trade using Futures-->
 

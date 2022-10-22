@@ -1,3 +1,18 @@
+<div class="selector-box">
+<h1>Postion Size and Risk calculator</h1>
+<h6>select Pre configured instrument or fill your lot size</h6>
+<select class="inputbox" [ngModel]="selectedScript" (ngModelChange)="updateLotSizeAndInfo($event)">
+  <ng-container *ngFor="let tradingScript of prefilledScripOptions">
+  <option [ngValue]="tradingScript">{{tradingScript.label}}</option>  
+</ng-container>
+</select>
+
+
+<h6>Script Selected:- <span>{{selectedScript.label}}</span></h6>
+<h6>Base Value Info:- <span>{{selectedScript.basevalueInfo}}</span> </h6>
+<h6>Trading unit Info:- <span>{{selectedScript.tradingUnitInfo}}</span></h6>
+</div>
+
 <div class="tools-block">
   <h3 class="trade-type">Trading using At the Money Option</h3>
 
@@ -44,7 +59,7 @@
       <span class="inputLabel">Lot Size: </span>
     </div>
     <div>
-      <input class="inputbox" type="number" [(ngModel)]="lotSize" (change)="calculateOption()" />
+      <input class="inputbox" type="number" [(ngModel)]="lotSize" (ngModelChange)="restSelectedScript($event)" (change)="calculateOption()" />
     </div>
   </div>
 
@@ -144,7 +159,7 @@
       <span class="inputLabel">Lot Size: </span>
     </div>
     <div>
-      <input class="inputbox" type="number" [(ngModel)]="lotSize" (change)="calculateRenkoAtmOption()" />
+      <input class="inputbox" type="number" [(ngModel)]="lotSize" (ngModelChange)="restSelectedScript($event)" (change)="calculateRenkoAtmOption()" />
     </div>
   </div>
 
@@ -348,7 +363,7 @@
       <span class="inputLabel">Lot Size: </span>
     </div>
     <div>
-      <input class="inputbox" type="number" [(ngModel)]="lotSize" (change)="calculate()" />
+      <input class="inputbox" type="number" [(ngModel)]="lotSize" (ngModelChange)="restSelectedScript($event)" (change)="calculate()" />
     </div>
   </div>
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { TickSize,scripObject} from './../../shared/tools.model';
 @Component({
   selector: 'app-risk-mangement',
   templateUrl: './risk-mangement.component.html',
@@ -24,6 +24,14 @@ export class RiskMangementComponent implements OnInit {
   EntryType: "long" | "short" = "long";
   TakeProfitSpotPrice: number = 0;
   StopLossSpotPrice: number = 0;
+
+  readonly prefilledScripOptions:Array<scripObject> = TickSize;
+  selectedScript:scripObject = {
+    basevalueInfo:"",
+    label:"custom",
+    lotSize:1,
+    tradingUnitInfo:""
+  };
 
 
   /**
@@ -57,6 +65,26 @@ export class RiskMangementComponent implements OnInit {
   renkoReversalPips: number = 0;
   renkoTrendPrice: number = 0;
   renkoReversalPrice: number = 0;
+
+  updateLotSizeAndInfo(selectedOption:scripObject){
+this.selectedScript = selectedOption;
+if(this.selectedScript.label!=="custom"){
+  this.lotSize = this.selectedScript.lotSize;
+}
+else{
+  this.lotSize = 1;
+}
+
+}
+
+restSelectedScript(data:any){
+  this.selectedScript = {
+    basevalueInfo:"",
+    label:"CUSTOM",
+    lotSize:1,
+    tradingUnitInfo:""
+  };
+}
 
   calculate() {
     this.riskATR = 1.5 * this.ATRvalue;

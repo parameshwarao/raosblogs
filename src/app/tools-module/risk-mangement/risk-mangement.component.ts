@@ -205,4 +205,8 @@ restSelectedScript(data:any){
   ngOnInit(): void {
   }
 
+  copyMessage(val: number){
+    navigator.clipboard.writeText(`${val}`);    
+  }
+
 }

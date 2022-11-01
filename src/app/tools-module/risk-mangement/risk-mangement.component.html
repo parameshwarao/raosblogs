@@ -233,7 +233,13 @@
       <span class="displayLabel">Renko Stoploss price:-</span><span class="stoploss">{{option_stoploss}}</span>
     </div>
     <div>
+      <button class="clipBoard-stoploss" (click)="copyMessage(this.option_stoploss)">copy stoploss price clipboard</button>
+    </div>
+    <div>
       <span class="displayLabel">Renko TakeProfit price:-</span><span class="takeProfit">{{option_takeProfit}}</span>
+    </div>
+    <div>
+      <button class="clipBoard-takeprofit" (click)="copyMessage(this.option_takeProfit)">copy takeProfit price clipboard</button>
     </div>
     
     <!--
@@ -319,7 +325,13 @@
       <span class="displayLabel">Renko Trend Price alarm:-</span><span class="renkoAlarm">{{renkoTrendPrice}}</span>
     </div>
     <div>
+      <button class="clipBoard-takeprofit" (click)="copyMessage(this.renkoTrendPrice)">copy renko trend price alarm clipboard</button>
+    </div>
+    <div>
       <span class="displayLabel">Renko Reverasal Price alarm:-</span><span class="renkoAlarm">{{renkoReversalPrice}}</span>
+    </div>
+    <div>
+      <button class="clipBoard-stoploss" (click)="copyMessage(this.renkoReversalPrice)">copy renko reversal price alarm clipboard</button>
     </div>
     
     <div>
@@ -427,7 +439,14 @@
       <span class="displayLabel">Renko Takeprofit price:-</span><span class="takeProfit">{{renkoTrendPrice}}</span>
     </div>
     <div>
+      <button class="clipBoard-takeprofit" (click)="copyMessage(this.renkoTrendPrice)">copy renko take profit price clipboard</button>
+    </div>
+    <div>
       <span class="displayLabel">Renko Stoploss Price:-</span><span class="stoploss">{{renkoReversalPrice}}</span>
+    </div>
+
+    <div>
+      <button class="clipBoard-stoploss" (click)="copyMessage(this.renkoReversalPrice)">copy renko stoploss price clipboard</button>
     </div>
     
     <div>
@@ -522,7 +541,13 @@
       <span class="displayLabel">StopLoss price:-</span><span class="stoploss">{{StopLossSpotPrice}}</span>
     </div>
     <div>
+      <button class="clipBoard-stoploss" (click)="copyMessage(this.StopLossSpotPrice)">copy stoploss clipboard</button>
+    </div>
+    <div>
       <span class="displayLabel">Takeprofit price:-</span><span class="takeProfit">{{TakeProfitSpotPrice}}</span>
+    </div>
+    <div>
+      <button class="clipBoard-takeprofit" (click)="copyMessage(this.TakeProfitSpotPrice)">copy take profit price clipboard</button>
     </div>
   </div>
 

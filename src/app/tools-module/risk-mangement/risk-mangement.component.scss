@@ -88,6 +88,31 @@ $AbsoluteButtonColor:#71d6cd;
   }
 }
 
+@mixin clipboardbutton{  
+    padding: 0.3em;
+    border: 1px solid white;
+    
+    color: black;
+    font-weight: 400;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover{
+      color:lighten($AbsoluteButtonColor,10%) !important;
+      background-color:#4BA2E5;
+      transition: all 0.3s ease-out;
+  }
+}
+
+.clipBoard-takeprofit{
+  @include clipboardbutton;
+  background-color: green;
+}
+
+.clipBoard-stoploss{
+  @include clipboardbutton;
+  background-color: red;
+}
+
 .selector-box{
   padding: 1em;  
 }
